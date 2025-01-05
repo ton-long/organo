@@ -65,7 +65,7 @@ const Formulario = ({ aoCadastrar, times, cadastrarTime }) => {
           valor={time}
           aoAlterado={(valor) => setTime(valor)}
         />
-        <Botao texto="Criar card" />
+        <Botao>Criar card</Botao>
       </form>
       <form className="formulario" onSubmit={criarTime}>
         <h2>Preencha os dados para criar um novo time.</h2>
@@ -84,7 +84,7 @@ const Formulario = ({ aoCadastrar, times, cadastrarTime }) => {
           valor={corTime}
           aoAlterado={(valor) => setCorTime(valor)}
         />
-        <Botao texto="Criar time" />
+        <Botao>Criar time</Botao>
       </form>
     </section>
   );

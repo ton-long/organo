@@ -250,7 +250,10 @@ function App() {
   };
   return (
     <div>
-      <Banner />
+      <Banner
+        enderecoImagem={`${process.env.PUBLIC_URL}/imagens/banner.png`}
+        textoAlternativo="Banner principal da página do Organo"
+      />
       <Formulario
         cadastrarTime={cadastrarTime}
         times={times.map((time) => time.nome)}
