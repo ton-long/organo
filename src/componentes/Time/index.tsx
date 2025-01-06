@@ -29,7 +29,11 @@ const Time = ({
         }}
       >
         <input
-          onChange={(evento) => mudarCor(evento.target.value, time.id)}
+          onChange={(evento) => {
+            if (time.id) {
+              mudarCor(evento.target.value, time.id);
+            }
+          }}
           value={time.cor}
           type="color"
           className="input-cor"

@@ -1,12 +1,20 @@
 import "./lista-suspensa.css";
 
+interface ListaSuspensaProps {
+  label: string;
+  itens: string[];
+  valor: string;
+  obrigatorio: boolean;
+  aoAlterado: (cor: string) => void;
+}
+
 const ListaSuspensa = ({
   label,
-  items,
+  itens,
   valor,
   aoAlterado,
   obrigatorio = false,
-}) => {
+}: ListaSuspensaProps) => {
   return (
     <div className="lista-suspensa">
       <label>{label}</label>
@@ -16,7 +24,7 @@ const ListaSuspensa = ({
         onChange={(evento) => aoAlterado(evento.target.value)}
       >
         <option />
-        {items.map((item) => (
+        {itens.map((item) => (
           <option key={item}>{item}</option>
         ))}
       </select>

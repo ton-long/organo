@@ -4,9 +4,11 @@ import Formulario from "./componentes/Formulario";
 import Rodape from "./componentes/Rodape";
 import Time from "./componentes/Time";
 import { v4 as uuidv4 } from "uuid";
+import { ITime } from "./shared/interfaces/ITime";
+import { IColaborador } from "./shared/interfaces/IColaborador";
 
 function App() {
-  const [times, setTimes] = useState([
+  const [times, setTimes] = useState<ITime[]>([
     {
       id: uuidv4(),
       nome: "Raro",
@@ -34,7 +36,7 @@ function App() {
     },
   ]);
 
-  const inicial = [
+  const inicial: IColaborador[] = [
     {
       id: uuidv4(),
       favorito: false,
@@ -217,13 +219,13 @@ function App() {
     },
   ];
 
-  const [colaboradores, setColaboradores] = useState(inicial);
+  const [colaboradores, setColaboradores] = useState<IColaborador[]>(inicial);
 
-  const cadastrarTime = (novoTime) => {
+  const cadastrarTime = (novoTime: ITime) => {
     setTimes([...times, { ...novoTime, id: uuidv4() }]);
   };
 
-  const mudarCorDoTime = (cor, id) => {
+  const mudarCorDoTime = (cor: string, id: any) => {
     setTimes(
       times.map((time) => {
         if (time.id === id) {
@@ -234,7 +236,7 @@ function App() {
     );
   };
 
-  const resolverFavorito = (id) => {
+  const resolverFavorito = (id: string) => {
     setColaboradores(
       colaboradores.map((colaborador) => {
         if (colaborador.id === id) colaborador.favorito = !colaborador.favorito;
@@ -243,7 +245,7 @@ function App() {
     );
   };
 
-  const deletarColaborador = (id) => {
+  const deletarColaborador = (id: string) => {
     setColaboradores(
       colaboradores.filter((colaborador) => colaborador.id !== id)
     );
@@ -257,7 +259,7 @@ function App() {
       <Formulario
         cadastrarTime={cadastrarTime}
         times={times.map((time) => time.nome)}
-        aoCadastrar={(colaborador) =>
+        aoCadastrar={(colaborador: IColaborador) =>
           setColaboradores([...colaboradores, { ...colaborador, id: uuidv4() }])
         }
       />

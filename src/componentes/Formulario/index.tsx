@@ -3,16 +3,24 @@ import Botao from "../Botao";
 import Campo from "../Campo";
 import ListaSuspensa from "../ListaSuspensa";
 import "./formulario.css";
+import { IColaborador } from "../../shared/interfaces/IColaborador";
+import { ITime } from "../../shared/interfaces/ITime";
 
-const Formulario = ({ aoCadastrar, times, cadastrarTime }) => {
-  const [nome, setNome] = useState("");
-  const [classe, setClasse] = useState("");
-  const [imagem, setImagem] = useState("");
-  const [time, setTime] = useState("");
-  const [nomeTime, setNomeTime] = useState("");
-  const [corTime, setCorTime] = useState("#000000");
+interface FormularioProps {
+  aoCadastrar: (colaborador: IColaborador) => void;
+  times: string[];
+  cadastrarTime: (time: ITime) => void;
+}
 
-  const aoSubmeter = (evento) => {
+const Formulario = ({ aoCadastrar, times, cadastrarTime }: FormularioProps) => {
+  const [nome, setNome] = useState<string>("");
+  const [classe, setClasse] = useState<string>("");
+  const [imagem, setImagem] = useState<string>("");
+  const [time, setTime] = useState<string>("");
+  const [nomeTime, setNomeTime] = useState<string>("");
+  const [corTime, setCorTime] = useState<string>("#000000");
+
+  const aoSubmeter = (evento: React.FormEvent<HTMLFormElement>) => {
     evento.preventDefault();
     aoCadastrar({
       nome,
@@ -26,7 +34,7 @@ const Formulario = ({ aoCadastrar, times, cadastrarTime }) => {
     setTime("");
   };
 
-  const criarTime = (evento) => {
+  const criarTime = (evento: React.FormEvent<HTMLFormElement>) => {
     evento.preventDefault();
     cadastrarTime({ nome: nomeTime, cor: corTime });
     alert("Time criado!");
@@ -61,7 +69,7 @@ const Formulario = ({ aoCadastrar, times, cadastrarTime }) => {
         <ListaSuspensa
           obrigatorio
           label="Times"
-          items={times}
+          itens={times}
           valor={time}
           aoAlterado={(valor) => setTime(valor)}
         />

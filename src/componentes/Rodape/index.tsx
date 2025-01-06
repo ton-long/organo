@@ -7,17 +7,26 @@ const Rodape = () => {
         <ul>
           <li>
             <a href="facebook.com" target="_blank">
-              <img src={`${process.env.PUBLIC_URL}/imagens/facebook.png`} alt="" />
+              <img
+                src={`${process.env.PUBLIC_URL}/imagens/facebook.png`}
+                alt=""
+              />
             </a>
           </li>
           <li>
             <a href="twitter.com" target="_blank">
-              <img src={`${process.env.PUBLIC_URL}/imagens/twitter.png`} alt="" />
+              <img
+                src={`${process.env.PUBLIC_URL}/imagens/twitter.png`}
+                alt=""
+              />
             </a>
           </li>
           <li>
             <a href="instagram.com" target="_blank">
-              <img src={`${process.env.PUBLIC_URL}/imagens/instagram.png`} alt="" />
+              <img
+                src={`${process.env.PUBLIC_URL}/imagens/instagram.png`}
+                alt=""
+              />
             </a>
           </li>
         </ul>
